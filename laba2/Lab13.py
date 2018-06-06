@@ -55,9 +55,9 @@ class GoodsList(Resource):
             abort(404)
         good = good[0]
         args = self.reqparse.parse_args()
-        for namber, v in args.items():
-            if v is not None:
-                good[namber] = v
+        for key, value in args.items():
+            if value is not None:
+                good[key] = value
         return {'Good': marshal(good, goods_fields)}
 
 
